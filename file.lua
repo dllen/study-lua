@@ -20,3 +20,28 @@ io.output(file)
 io.write("-- append by program")
 
 io.close(file)
+
+file = io.open("test.lua", "r")
+
+ print(file:read())
+
+ file:close()
+
+ file = io.open("test.lua", "a")
+
+ file:write("\r\n--test\r\n")
+
+ file:close()
+
+
+ for line in io.lines("file.lua") do
+     print(line)
+ end
+
+ file = io.open("test.lua", "r")
+
+ file:seek("end", -25)
+ print(file:read("*a"))
+
+ file:close()
+
